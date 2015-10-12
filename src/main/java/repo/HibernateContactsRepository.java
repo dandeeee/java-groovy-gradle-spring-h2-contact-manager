@@ -30,7 +30,7 @@ public class HibernateContactsRepository implements ContactsRepository {
     }
 
     public void removeContact(Integer id) {
-        Contact contact = (Contact) sessionFactory.getCurrentSession().load(Contact.class, id);
+        Contact contact = (Contact) sessionFactory.getCurrentSession().get(Contact.class, id);
         if (null != contact) {
             sessionFactory.getCurrentSession().delete(contact);
         }
